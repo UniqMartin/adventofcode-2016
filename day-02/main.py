@@ -1,14 +1,11 @@
 """Advent of Code 2016 - Day 2."""
 
-import os
+from pathlib import Path
 
 
 def read_input():
     """Read input file and split into individual lines returned as a list."""
-    base = os.path.abspath(os.path.dirname(__file__))
-    file = os.path.join(base, 'input.txt')
-    with open(file) as f:
-        return f.read().splitlines()
+    return Path(__file__).with_name('input.txt').read_text().splitlines()
 
 
 class Keypad:

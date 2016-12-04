@@ -1,16 +1,13 @@
 """Advent of Code 2016 - Day 3."""
 
 import itertools
-import os
+from pathlib import Path
 
 
 def read_input():
     """Read input file and return as a list of integer triples."""
-    base = os.path.abspath(os.path.dirname(__file__))
-    file = os.path.join(base, 'input.txt')
-    with open(file) as f:
-        lines = f.read().splitlines()
-        return [[int(number) for number in line.split()] for line in lines]
+    lines = Path(__file__).with_name('input.txt').read_text().splitlines()
+    return [[int(number) for number in line.split()] for line in lines]
 
 
 def sliced(iterable, n, fillvalue=None):
